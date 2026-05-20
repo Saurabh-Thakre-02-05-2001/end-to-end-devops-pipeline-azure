@@ -1,0 +1,81 @@
+pipeline {
+    
+    agent any
+    
+    tools {
+        jdk "Java11"
+        maven "Maven3"
+    }
+    
+    stages {
+        //Cloning code from the github
+        stage("Clone git code") {
+            steps {
+                git branch:"develop", url: "https://github.com/pradeepkaldate/Shopkart.git"
+            }
+        }
+        // Compiling code
+        stage("Compile code") {
+            steps{
+                sh "mvn compile"
+            }
+        }
+        //Testing code
+        stage("Test code") {
+            steps{
+                sh "mvn test"
+            }
+        }
+        //SonarQube analysis
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('SonarQube-Server') {
+                    sh 'mvn sonar:sonar'
+                }
+            }
+        }
+        
+        //SonarQube Quality Gate
+        stage('Quality Gate') {
+            steps {
+                waitForQualityGate abortPipeline: false, credentialsId: 'Sonar-token'
+            }
+        }
+        
+        //Package code in artificate
+        stage('Package code') {
+            steps{
+                sh "mvn clean package"
+            }
+        }
+        
+        //Deploy on tomcat
+        stage('Deploy on container') {
+            steps{
+                deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: 'Tomcat-creds', path: '', url: 'http://20.197.47.214:8080')], contextPath: 'shopkart-app', war: 'target/*.war'
+            }
+        }
+        
+        //Store artefact in nexus
+        stage('Store artefact in nexus') {
+            steps{
+                nexusArtifactUploader artifacts: [[artifactId: 'shopkart', classifier: '', file: 'target/shopkart-app.war', type: '.war']], credentialsId: 'Nexus-creds', groupId: 'com.springspartans', nexusUrl: '20.197.47.214:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'Shopkart-Artefact', version: '0.0.1-SNAPSHOT'
+            }
+        }
+        
+        stage('Upload Artifact to Azure Blob') {
+            steps {
+                    sh '''
+                          az storage blob upload \
+                           --account-name shopkartartefactstorage \
+                           --container-name shopkart-artifacts \
+                           --name shopkart-app.war \
+                           --file target/shopkart-app.war \
+                           --overwrite \
+                           --auth-mode login
+                            '''
+                 }
+        }
+
+    }
+}
