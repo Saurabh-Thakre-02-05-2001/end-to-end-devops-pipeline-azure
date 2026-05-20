@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopKart - Project Report</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 2.54cm;
+        }
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: #fff;
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+            page-break-after: avoid;
+        }
+        h1 {
+            text-align: center;
+            font-size: 28pt;
+            margin-top: 100px;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+        h2 {
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 10px;
+            margin-top: 40px;
+            font-size: 18pt;
+        }
+        h3 {
+            margin-top: 30px;
+            font-size: 14pt;
+        }
+        .center {
+            text-align: center;
+        }
+        .title-page {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            page-break-after: always;
+        }
+        .certificate, .declaration, .acknowledgment, .abstract {
+            page-break-after: always;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        }
+        .figure-caption {
+            text-align: center;
+            font-style: italic;
+            font-size: 10pt;
+            margin-top: -10px;
+            margin-bottom: 20px;
+        }
+        .toc {
+            page-break-after: always;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc li {
+            margin-bottom: 10px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #333;
+        }
+        .code-block {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            padding: 15px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 10pt;
+            white-space: pre-wrap;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Title Page -->
+    <div class="title-page">
+        <div>
+            <h1>ShopKart</h1>
+            <h2 class="center" style="border:none;">Web-Based E-Commerce Application Using Spring Boot</h2>
+        </div>
+        
+        <div class="center">
+            <p><strong>Domain:</strong> E-Commerce / Information Technology</p>
+            <p><strong>Technologies:</strong> Java 17, Spring Boot 3.3.4, JPA, JSP, MySQL, Docker</p>
+        </div>
+
+        <div class="center" style="margin-top: 100px;">
+            <p>Submitted by</p>
+            <h3>Sanket Gabhud</h3>
+            <p>Academic Year: 2025–2026</p>
+        </div>
+
+        <div class="center" style="margin-top: 50px;">
+            <p>Under the guidance of</p>
+            <p><strong>[SUPERVISOR NAME]</strong></p>
+        </div>
+    </div>
+
+    <!-- Certificate -->
+    <div class="certificate">
+        <h2>Certificate</h2>
+        <p>This is to certify that the project report entitled <strong>"ShopKart — Web-Based E-Commerce Application Using Spring Boot"</strong> submitted by <strong>Sanket Gabhud</strong> is a record of bona fide work carried out under my supervision.</p>
+        <div style="margin-top: 100px; display: flex; justify-content: space-between;">
+            <div>
+                <p>_________________________</p>
+                <p><strong>Signature of Guide</strong></p>
+            </div>
+            <div>
+                <p>_________________________</p>
+                <p><strong>Signature of HOD</strong></p>
+            </div>
+        </div>
+        <p>Date: _______________</p>
+    </div>
+
+    <!-- Declaration -->
+    <div class="declaration">
+        <h2>Declaration</h2>
+        <p>I hereby declare that this project report titled <strong>ShopKart — Web-Based E-Commerce Application Using Spring Boot</strong> is my own original work. The implementation, analysis, and documentation have been carried out by me under the guidance of my supervisor. Sources of information and assistance from others have been duly acknowledged.</p>
+        <div style="margin-top: 100px;">
+            <p>_________________________</p>
+            <p><strong>Sanket Gabhud</strong></p>
+            <p>Date: _______________</p>
+        </div>
+    </div>
+
+    <!-- Abstract -->
+    <div class="abstract">
+        <h2>Abstract</h2>
+        <p>Electronic commerce has become a fundamental channel for retail and service delivery. <strong>ShopKart</strong> is a full-stack style web application built on <strong>Java</strong> and <strong>Spring Boot</strong>, following a classic <strong>Model–View–Controller (MVC)</strong> pattern.</p>
+        <p>The system distinguishes <strong>customers</strong> and <strong>administrators</strong> through separate entities and session attributes. Customers can register, browse products, manage shopping carts, and place orders. Administrators have access to a comprehensive dashboard with sales and activity metrics, catalog management, and order oversight.</p>
+        <p>The application leverages <strong>Spring Data JPA</strong> for persistence, <strong>JSP</strong> for server-side rendering, and <strong>BCrypt</strong> for secure password hashing. This report documents the requirements, design, implementation details, and test cases of the ShopKart system.</p>
+    </div>
+
+    <!-- Table of Contents -->
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li>1. Introduction</li>
+            <li>2. Literature Survey</li>
+            <li>3. System Analysis</li>
+            <li>4. System Design</li>
+            <li>5. Implementation</li>
+            <li>6. Testing & Results</li>
+            <li>7. Conclusion & Future Scope</li>
+            <li>8. Appendices</li>
+        </ul>
+    </div>
+
+    <!-- Chapter 1 -->
+    <section>
+        <h2>Chapter 1: Introduction</h2>
+        <h3>1.1 Project Overview</h3>
+        <p>ShopKart is a robust e-commerce simulation platform. It provides a seamless interface for users to shop and for admins to manage the business. The application is built using the Spring Boot framework, ensuring scalability and ease of deployment.</p>
+        
+        <h3>1.2 Objectives</h3>
+        <ul>
+            <li>To build a secure and responsive e-commerce platform.</li>
+            <li>To implement a clear distinction between User and Admin roles.</li>
+            <li>To automate inventory management and order processing.</li>
+            <li>To provide data-driven insights through an admin dashboard.</li>
+        </ul>
+    </section>
+
+    <!-- Chapter 4 -->
+    <section>
+        <h2>Chapter 4: System Design</h2>
+        <h3>4.1 System Architecture</h3>
+        <p>The application follows a standard N-Tier architecture, separating the presentation, business logic, and data layers.</p>
+        <img src="architecture.png" alt="System Architecture">
+        <p class="figure-caption">Figure 4.1: ShopKart N-Tier Architecture Diagram</p>
+
+        <h3>4.2 User Workflow</h3>
+        <p>The typical user journey from registration to order completion is illustrated below.</p>
+        <img src="user_flow.png" alt="User Workflow">
+        <p class="figure-caption">Figure 4.2: Customer Journey Flowchart</p>
+
+        <h3>4.3 Database Schema</h3>
+        <p>The relational schema includes entities for Customer, Product, CartItem, Order, and Admin. Relationships are managed via Spring Data JPA.</p>
+        <table>
+            <tr>
+                <th>Entity</th>
+                <th>Primary Attributes</th>
+            </tr>
+            <tr>
+                <td>Customer</td>
+                <td>Name, Email, Password (Hashed), Address, Phone</td>
+            </tr>
+            <tr>
+                <td>Product</td>
+                <td>Name, Price, Stock, Category, Image</td>
+            </tr>
+            <tr>
+                <td>Order</td>
+                <td>Customer Ref, Product Ref, Quantity, Status, Total</td>
+            </tr>
+            <tr>
+                <td>Admin</td>
+                <td>Username, Email, Security Key</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- Chapter 5 -->
+    <section>
+        <h2>Chapter 5: Implementation</h2>
+        <h3>5.1 Admin Dashboard & Analytics</h3>
+        <p>The Admin Dashboard provides real-time metrics including total sales, order statuses, and top-selling products.</p>
+        <img src="analytics.png" alt="Admin Dashboard Analytics">
+        <p class="figure-caption">Figure 5.1: Admin Analytics Dashboard Mockup</p>
+
+        <h3>5.2 Technical Stack</h3>
+        <ul>
+            <li><strong>Backend:</strong> Java 17, Spring Boot 3.3.4</li>
+            <li><strong>Persistence:</strong> Spring Data JPA with MySQL/H2</li>
+            <li><strong>Security:</strong> BCrypt Password Encoding</li>
+            <li><strong>Frontend:</strong> JSP, HTML5, CSS3, JavaScript</li>
+        </ul>
+    </section>
+
+    <!-- Chapter 6 -->
+    <section>
+        <h2>Chapter 6: Testing & Results</h2>
+        <h3>6.1 Test Cases</h3>
+        <table>
+            <tr>
+                <th>Test ID</th>
+                <th>Module</th>
+                <th>Description</th>
+                <th>Result</th>
+            </tr>
+            <tr>
+                <td>TC-01</td>
+                <td>Registration</td>
+                <td>User can sign up with unique email</td>
+                <td>Passed</td>
+            </tr>
+            <tr>
+                <td>TC-02</td>
+                <td>Order</td>
+                <td>Stock decreases automatically after order</td>
+                <td>Passed</td>
+            </tr>
+            <tr>
+                <td>TC-03</td>
+                <td>Admin</td>
+                <td>Access denied to dashboard without security key</td>
+                <td>Passed</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- Chapter 7 -->
+    <section>
+        <h2>Chapter 7: Conclusion</h2>
+        <p>ShopKart successfully demonstrates a functional e-commerce ecosystem. The integration of Spring Boot and JPA allows for efficient data handling, while the custom admin dashboard empowers management with actionable insights.</p>
+        
+        <h3>7.1 Future Enhancements</h3>
+        <ul>
+            <li>Integration with Payment Gateways (Stripe/Razorpay).</li>
+            <li>Implementation of JWT-based RESTful APIs.</li>
+            <li>Real-time Email/SMS notifications for order status updates.</li>
+        </ul>
+    </section>
+
+</body>
+</html>

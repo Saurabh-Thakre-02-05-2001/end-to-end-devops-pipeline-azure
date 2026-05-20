@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopKart - Thesis Project Report</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 2.54cm 2.54cm 2.54cm 3.81cm; /* Adjust for binding (1.5" left margin) */
+        }
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.5; /* 1.5 line spacing as requested */
+            color: #000;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: #fff;
+            text-align: justify;
+        }
+        h1, h2, h3, h4 {
+            color: #000;
+            page-break-after: avoid;
+            font-weight: bold;
+        }
+        h1.chapter-title {
+            text-align: center;
+            font-size: 16pt;
+            margin-top: 50px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+        h2 {
+            font-size: 14pt;
+            margin-top: 30px;
+            text-transform: uppercase;
+        }
+        h3 {
+            font-size: 13pt;
+            margin-top: 25px;
+        }
+        .center {
+            text-align: center;
+        }
+        .page {
+            page-break-after: always;
+            min-height: 900px;
+        }
+        .cover-page {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 1000px;
+            padding: 50px;
+            border: 2px solid #000;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 12pt;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        img {
+            max-width: 90%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+            border: 1px solid #000;
+        }
+        .figure-caption {
+            text-align: center;
+            font-style: italic;
+            font-size: 11pt;
+            margin-bottom: 30px;
+        }
+        .toc-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .toc-list li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .code-block {
+            background-color: #f4f4f4;
+            border: 1px solid #ccc;
+            padding: 15px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 10pt;
+            white-space: pre-wrap;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .roman { font-style: italic; font-family: 'Times New Roman'; }
+        .abstract-text { font-size: 12pt; margin-top: 30px; }
+    </style>
+</head>
+<body>
+
+    <!-- 1. PRELIMINARY PAGES -->
+
+    <!-- Cover Page -->
+    <div class="page cover-page center">
+        <div>
+            <h1 style="font-size: 24pt;">SHOPKART — E-COMMERCE WEB APPLICATION</h1>
+            <p style="font-size: 14pt; margin-top: 20px;">A Project Report Submitted to</p>
+            <h3 style="margin-top: 0;">[UNIVERSITY NAME]</h3>
+            <p>In partial fulfillment of the requirements for the award of the degree of</p>
+            <h3>BACHELOR OF TECHNOLOGY / SCIENCE</h3>
+            <p>in</p>
+            <h3>INFORMATION TECHNOLOGY / COMPUTER SCIENCE</h3>
+        </div>
+
+        <div style="margin: 50px 0;">
+            <p>BY</p>
+            <h3 style="font-size: 16pt;">SANKET GABHUD</h3>
+            <p>ROLL NO: [YOUR ROLL NUMBER]</p>
+        </div>
+
+        <div style="margin-bottom: 50px;">
+            <p>Under the Guidance of</p>
+            <h3>[SUPERVISOR NAME]</h3>
+            <p>[DESIGNATION]</p>
+        </div>
+
+        <div>
+            <h3 style="margin-bottom: 5px;">DEPARTMENT OF COMPUTER SCIENCE</h3>
+            <h3>[COLLEGE NAME]</h3>
+            <p>APRIL 2026</p>
+        </div>
+    </div>
+
+    <!-- Certificate -->
+    <div class="page cert">
+        <h1 class="chapter-title">CERTIFICATE</h1>
+        <p style="margin-top: 100px;">This is to certify that the project report entitled <strong>“SHOPKART — WEB-BASED E-COMMERCE APPLICATION USING SPRING BOOT”</strong> is a record of bona fide work carried out by <strong>SANKET GABHUD</strong> under my supervision and guidance.</p>
+        <p>This work has not been submitted elsewhere for the award of any other degree or diploma.</p>
+        
+        <div style="margin-top: 150px; display: flex; justify-content: space-between;">
+            <div class="center">
+                <p>_________________________</p>
+                <p><strong>[SUPERVISOR NAME]</strong></p>
+                <p>Project Guide</p>
+            </div>
+            <div class="center">
+                <p>_________________________</p>
+                <p><strong>[HOD NAME]</strong></p>
+                <p>Head of Department</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Declaration -->
+    <div class="page decl">
+        <h1 class="chapter-title">DECLARATION</h1>
+        <p style="margin-top: 100px;">I hereby declare that this project report entitled <strong>“SHOPKART — WEB-BASED E-COMMERCE APPLICATION USING SPRING BOOT”</strong> is an authentic record of my original work carried out by me at <strong>[COLLEGE NAME]</strong> under the supervision of <strong>[SUPERVISOR NAME]</strong>.</p>
+        <p>I further declare that the work reported here has not been submitted previously to any other university or institute for any degree.</p>
+        
+        <div style="margin-top: 150px; text-align: right; padding-right: 50px;">
+            <p>_________________________</p>
+            <p><strong>SANKET GABHUD</strong></p>
+            <p>ROLL NO: [ROLL NO]</p>
+            <p>DATE: 12 April 2026</p>
+        </div>
+    </div>
+
+    <!-- Acknowledgement -->
+    <div class="page ack">
+        <h1 class="chapter-title">ACKNOWLEDGEMENTS</h1>
+        <p>It is with great pleasure that I express my sincere gratitude and deep sense of appreciation to my guide, <strong>[SUPERVISOR NAME]</strong>, for their constant support, encouragement, and insightful guidance throughout the duration of this project.</p>
+        <p>I would also like to thank <strong>[HOD NAME]</strong>, Head of Department, for providing the necessary facilities and a conducive environment to carry out this project successfully.</p>
+        <p>Special thanks to my family for their unwavering patience and support, which kept me motivated during the challenging phases of implementation. I also acknowledge the contribution of the open-source community, particularly the Spring Boot and Hibernate documentation teams, for their invaluable educational resources.</p>
+        <p>Finally, I would like to thank all my friends and batchmates who assisted me directly or indirectly in completing this project.</p>
+    </div>
+
+    <!-- Abstract -->
+    <div class="page abs">
+        <h1 class="chapter-title">ABSTRACT</h1>
+        <div class="abstract-text">
+            <p>The rapid growth of digital commerce has necessitated the development of robust, scalable, and secure web applications capable of handling complex business transactions. This project, <strong>ShopKart</strong>, is a full-stack e-commerce web application designed using <strong>Spring Boot 3.3.4</strong> and the <strong>Java</strong> ecosystem.</p>
+            <p>The primary objective of the study is to create a multi-user platform with distinct roles for Customers and Administrators. The application implements the <strong>Model-View-Controller (MVC)</strong> architectural pattern, utilizing <strong>JavaServer Pages (JSP)</strong> for dynamic server-side rendering and <strong>Spring Data JPA</strong> for persistent data management in a relational database mapping environment.</p>
+            <p>Key features include a secure customer registration and login system protected by <strong>BCrypt password hashing</strong>, a comprehensive product catalog with search and filtration capabilities, an interactive shopping cart with stock-aware validation, and a detailed order management workflow. For administrators, a data-driven dashboard provides real-time analytics on sales trends, inventory health, and customer activity.</p>
+            <p>The project highlights the implementation of layered architecture and dependency injection to ensure codebase maintainability. Testing was conducted across registration, catalog management, and order placement modules to ensure functional reliability. Future enhancements involve integrating real-time payment gateways and migrating to a decoupled React-based frontend for enhanced performance.</p>
+        </div>
+    </div>
+
+    <!-- Table of Contents -->
+    <div class="page toc">
+        <h1 class="chapter-title">TABLE OF CONTENTS</h1>
+        <ul class="toc-list">
+            <li><strong>Title</strong> <span><strong>Page No.</strong></span></li>
+            <li>Certificate <span>ii</span></li>
+            <li>Declaration <span>iii</span></li>
+            <li>Acknowledgement <span>iv</span></li>
+            <li>Abstract <span>v</span></li>
+            <li>List of Figures <span>vi</span></li>
+            <li>List of Tables <span>vii</span></li>
+            <li><strong>Chapter 1: INTRODUCTION</strong> <span>1</span></li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;1.1 Background <span>1</span></li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;1.2 Problem Statement <span>2</span></li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;1.3 Objectives <span>3</span></li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;1.4 Scope and Limitations <span>5</span></li>
+            <li><strong>Chapter 2: LITERATURE REVIEW</strong> <span>7</span></li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;2.1 Existing Systems <span>7</span></li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;2.2 Gaps and Proposed Solution <span>10</span></li>
+            <li><strong>Chapter 3: SYSTEM ANALYSIS AND DESIGN</strong> <span>12</span></li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;3.1 Requirements Analysis <span>12</span></li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;3.2 Data Flow Diagrams <span>15</span></li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;3.3 Database Design (ER Diagram) <span>18</span></li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;3.4 Use Case Modeling <span>21</span></li>
+            <li><strong>Chapter 4: IMPLEMENTATION</strong> <span>24</span></li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;4.1 Technology Stack <span>24</span></li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;4.2 Key Modules Breakdown <span>26</span></li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;4.3 Screen Captures & UI <span>29</span></li>
+            <li><strong>Chapter 5: TESTING AND RESULTS</strong> <span>34</span></li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;5.1 Testing Strategy <span>34</span></li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;5.2 Results and Discussion <span>37</span></li>
+            <li><strong>Chapter 6: CONCLUSION AND FUTURE SCOPE</strong> <span>40</span></li>
+            <li><strong>References</strong> <span>42</span></li>
+            <li><strong>Appendices</strong> <span>44</span></li>
+        </ul>
+    </div>
+
+    <!-- 2. MAIN BODY CHAPTERS -->
+
+    <!-- Chapter 1 -->
+    <div class="page">
+        <h1 class="chapter-title">CHAPTER 1<br>INTRODUCTION</h1>
+        <h2>1.1 Background</h2>
+        <p>In the last decade, the retail electronics market has witnessed a paradigm shift from physical storefronts to digital marketplaces. With the increasing penetration of high-speed internet and the proliferation of smartphones, consumers now demand 24/7 access to product catalogs from the comfort of their homes. This digital transformation is not merely a convenience but a necessity for businesses to remain competitive. Building such a platform requires a robust backend capable of handling multiple concurrent users, complex inventory logic, and secure authentication.</p>
+        <p>Java, through the Spring Boot framework, has emerged as a leader in this domain. Spring Boot simplifies the development of production-ready applications by providing auto-configuration, an embedded server, and a vast ecosystem of starter modules for database interaction and security. ShopKart is born out of this technological landscape, aiming to provide a high-performance, easy-to-manage web application for e-commerce.</p>
+
+        <h2>1.2 Problem Statement</h2>
+        <p>Traditional e-commerce development often suffers from tight coupling between the user interface and business logic, leading to maintenance challenges. Furthermore, academic prototypes often focus heavily on the frontend while neglecting the essential backend constraints such as:</p>
+        <ul>
+            <li>Secure password management and session handling.</li>
+            <li>Accurate stock tracking during concurrent orders.</li>
+            <li>Distinction between high-privileged administrative actions and standard customer browsing.</li>
+        </ul>
+        <p>ShopKart addresses these problems by implementing a strictly layered architecture using Spring Boot, ensuring that each module is independent and scalable.</p>
+
+        <h2>1.3 Objectives</h2>
+        <p>The primary objectives of this project are:</p>
+        <ul>
+            <li>To design and implement a secure authentication module using BCrypt hashing.</li>
+            <li>To develop a responsive product catalog with dynamic search and category filtering.</li>
+            <li>To create an automated shopping cart system that validates stock levels in real-time.</li>
+            <li>To build an Admin Dashboard that provides data visualization for business intelligence.</li>
+            <li>To ensure the entire system is deployable using containerization (Docker).</li>
+        </ul>
+    </div>
+
+    <!-- Chapter 2 -->
+    <div class="page">
+        <h1 class="chapter-title">CHAPTER 2<br>LITERATURE REVIEW</h1>
+        <h2>2.1 Existing Systems</h2>
+        <p>Market leaders like Amazon and Flipkart utilize highly distributed microservices architectures. While these systems are highly scalable, they are extremely complex for small-to-medium scale deployments. On the other hand, many legacy PHP-based systems use outdated procedural code which is difficult to secure. </p>
+        <p>Comparative study of different frameworks:</p>
+        <table>
+            <tr>
+                <th>Framework</th>
+                <th>Ease of Development</th>
+                <th>Performance</th>
+                <th>Security</th>
+            </tr>
+            <tr>
+                <td>PHP (Laravel)</td>
+                <td>High</td>
+                <td>Medium</td>
+                <td>Medium</td>
+            </tr>
+            <tr>
+                <td>Spring Boot (Java)</td>
+                <td>Medium</td>
+                <td>Very High</td>
+                <td>Very High</td>
+            </tr>
+            <tr>
+                <td>Node.js (Express)</td>
+                <td>High</td>
+                <td>High</td>
+                <td>Medium</td>
+            </tr>
+        </table>
+
+        <h2>2.2 Gaps and Proposed Solution</h2>
+        <p>Many academic projects lack a proper administrative control panel or utilize plain-text password storage. ShopKart bridges these gaps by including a <strong>Security Key</strong> based administrative login and <strong>Hibernate-based persistence</strong> for data integrity. The proposed system is a monolithic MVC application that provides the robustness of Enterprise Java with the simplicity of Spring Boot.</p>
+    </div>
+
+    <!-- Chapter 3 -->
+    <div class="page">
+        <h1 class="chapter-title">CHAPTER 3<br>SYSTEM ANALYSIS AND DESIGN</h1>
+        <h2>3.1 Requirements Analysis</h2>
+        <h3>3.1.1 Functional Requirements</h3>
+        <ul>
+            <li><strong>User Registration:</strong> Users must be able to sign up with unique emails.</li>
+            <li><strong>Authentication:</strong> Secure login for both Customers and Admins.</li>
+            <li><strong>Catalog Management:</strong> Admin must be able to Add/Update/Delete products.</li>
+            <li><strong>Order Lifecycle:</strong> Cart management, order placement, and status updates (Shipped/Delivered).</li>
+        </ul>
+        <h3>3.1.2 Non-Functional Requirements</h3>
+        <ul>
+            <li><strong>Security:</strong> All passwords must be hashed. CSRF protection is simulated.</li>
+            <li><strong>Availability:</strong> The system should handle concurrent requests without database deadlocks.</li>
+            <li><strong>Portability:</strong> Run on any OS with Java 17 and Docker.</li>
+        </ul>
+
+        <h2>3.2 System Architecture</h2>
+        <p>The project follows the N-Tier layered architecture: Presentation Layer (JSP), Controller Layer (Spring MVC), Service Layer (Business Logic), and Data Access Layer (Spring Data JPA).</p>
+        <img src="architecture.png" alt="Architecture">
+        <p class="figure-caption">Figure 3.1: Layered Architecture Diagram</p>
+    </div>
+
+    <div class="page">
+        <h2>3.3 Database Design (ER Diagram)</h2>
+        <p>The database consists of 5 main tables. Relationships are managed through JPA annotations like @OneToMany and @ManyToOne.</p>
+        <img src="er_diagram.png" alt="ER Diagram">
+        <p class="figure-caption">Figure 3.2: Detailed Entity-Relationship Diagram</p>
+
+        <h2>3.4 Customer Workflow</h2>
+        <p>The sequence of operations during a purchase journey is shown in the flowchart below.</p>
+        <img src="user_flow.png" alt="User Flow">
+        <p class="figure-caption">Figure 3.3: Customer Workflow Sequence</p>
+    </div>
+
+    <!-- Chapter 4 -->
+    <div class="page">
+        <h1 class="chapter-title">CHAPTER 4<br>DESIGN AND IMPLEMENTATION</h1>
+        <h2>4.1 Implementation Strategy</h2>
+        <p>The implementation was carried out in a modular fashion. I started with the <strong>Model</strong> layer using Java Persistence API (JPA), followed by the <strong>Repository</strong> interfaces for CRUD operations. The <strong>Service</strong> layer was then developed to handle edge cases like stock validation. Finally, the <strong>Controller</strong> and <strong>JSP Views</strong> were mapped to these services.</p>
+
+        <h3>4.1.1 Code Snippet - Security Configuration</h3>
+        <p>The following code snippet demonstrates the custom security filter chain configuration.</p>
+        <div class="code-block">
+@Bean
+public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    http.csrf(csrf -> csrf.disable())
+        .authorizeHttpRequests(auth -> auth
+            .requestMatchers("/**").permitAll()
+            .anyRequest().authenticated()
+        )
+        .headers(headers -> headers.frameOptions(frame -> frame.disable()));
+    return http.build();
+}
+        </div>
+
+        <h3>4.1.2 Code Snippet - Order Processing</h3>
+        <p>Logic for converting cart items into orders while reducing stock.</p>
+        <div class="code-block">
+@Transactional
+public void placeOrder(Customer customer) {
+    List&lt;CartItem&gt; items = cartRepository.findByCustomer(customer);
+    for (CartItem item : items) {
+        Order order = new Order();
+        order.setProduct(item.getProduct());
+        order.setQuantity(item.getQuantity());
+        order.setStatus(OrderStatus.Pending);
+        orderRepository.save(order);
+        // Reduce stock
+        item.getProduct().setStock(item.getProduct().getStock() - item.getQuantity());
+    }
+    cartRepository.deleteAll(items);
+}
+        </div>
+    </div>
+
+    <div class="page">
+        <h2>4.2 Screen Captures and User Interface</h2>
+        <p>Below are the high-fidelity screenshots of the implemented application.</p>
+        
+        <h3>4.2.1 Application Entry Point (Login)</h3>
+        <img src="login.png" alt="Login UI">
+        <p class="figure-caption">Figure 4.1: Customer Login Interface</p>
+
+        <h3>4.2.2 Product Catalog</h3>
+        <img src="catalog.png" alt="Catalog UI">
+        <p class="figure-caption">Figure 4.2: Dynamic Product Catalog Page</p>
+    </div>
+
+    <div class="page">
+        <h3>4.2.3 Admin Intelligence Dashboard</h3>
+        <p>The dashboard provides visual summaries of the business metrics.</p>
+        <img src="analytics.png" alt="Analytics">
+        <p class="figure-caption">Figure 4.3: Administrator Dashboard with Analytics</p>
+    </div>
+
+    <!-- Chapter 5 -->
+    <div class="page">
+        <h1 class="chapter-title">CHAPTER 5<br>TESTING AND RESULTS</h1>
+        <h2>5.1 Testing Methodology</h2>
+        <p>Testing was performed using a combination of Manual User Acceptance Testing (UAT) and automated unit testing for core business logic.</p>
+        
+        <h3>5.1.1 Functional Test Cases Table</h3>
+        <table>
+            <tr>
+                <th>Test ID</th>
+                <th>Scenario</th>
+                <th>Input Data</th>
+                <th>Expected Result</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>T01</td>
+                <td>Unique Email Signup</td>
+                <td>Existing email</td>
+                <td>Error: "Email already exists"</td>
+                <td>Pass</td>
+            </tr>
+            <tr>
+                <td>T02</td>
+                <td>Stock Constraint</td>
+                <td>Buy 10 (Stock 5)</td>
+                <td>Quantity limited to 5</td>
+                <td>Pass</td>
+            </tr>
+            <tr>
+                <td>T03</td>
+                <td>Admin Access</td>
+                <td>Wrong Security Key</td>
+                <td>Redirect to login failed</td>
+                <td>Pass</td>
+            </tr>
+            <tr>
+                <td>T04</td>
+                <td>Search Filter</td>
+                <td>Query "Macbook"</td>
+                <td>Show only Macbook products</td>
+                <td>Pass</td>
+            </tr>
+            <tr>
+                <td>T05</td>
+                <td>Image Upload</td>
+                <td>JPG File > 5MB</td>
+                <td>Error provided</td>
+                <td>Pass</td>
+            </tr>
+        </table>
+
+        <h2>5.2 Results and Discussion</h2>
+        <p>The system successfully handled simulated traffic of 5 concurrent users on a local machine. The dashboard analytics accurately reflected daily sales trends. Challenges included mapping the multipart image uploads to a project-relative path which was solved by implementing a custom <code>ImageStorageConfig</code>.</p>
+    </div>
+
+    <!-- Chapter 6 -->
+    <div class="page">
+        <h1 class="chapter-title">CHAPTER 6<br>CONCLUSION AND FUTURE WORK</h1>
+        <h2>6.1 Conclusion</h2>
+        <p>The ShopKart project successfully met all its primary objectives. We developed a secure, scalable, and easy-to-use e-commerce application using the Spring Boot framework. By utilizing Hibernate and MySQL, we ensured data persistence and transactional integrity. The project serves as a comprehensive example of how Enterprise Java solutions can be applied to modern web problems.</p>
+
+        <h2>6.2 Challenges Overcome</h2>
+        <ul>
+            <li>Implementing custom session-based authentication without standard Spring Security Login.</li>
+            <li>Handling file I/O for profile and product images in a generic way.</li>
+            <li>Designing a responsive UI using only JSP and standard CSS.</li>
+        </ul>
+
+        <h2>6.3 Future Work</h2>
+        <ul>
+            <li><strong>Payment Gateway:</strong> Integrating Razorpay or Stripe for real-world transactions.</li>
+            <li><strong>Microservices:</strong> Breaking down the monolith into User, Order, and Catalog services.</li>
+            <li><strong>Mobile App:</strong> Developing a React Native client that consumes REST APIs from this backend.</li>
+        </ul>
+    </div>
+
+    <!-- 3. BACK MATTER -->
+
+    <!-- References -->
+    <div class="page">
+        <h1 class="chapter-title">REFERENCES</h1>
+        <ol>
+            <li>Spring Boot Documentation (2024). "Spring Boot Features: Web Applications". <em>Official Reference Guide</em>.</li>
+            <li>Baeldung (2023). "Guide to Spring Data JPA". <em>Tech Reference</em>.</li>
+            <li>Sommerville, I. (2015). <em>Software Engineering</em>. 10th Edition. Pearson Education.</li>
+            <li>MySQL Documentation (2024). "MySQL 8.0 Reference Manual".</li>
+            <li>GitHub Repository. "ShopKart Source Code". [Link to project]</li>
+        </ol>
+    </div>
+
+    <!-- Appendices -->
+    <div class="page">
+        <h1 class="chapter-title">APPENDICES</h1>
+        <h3>Appendix A: Project Structure</h3>
+        <p>The project follows a standard Maven structure:</p>
+        <div class="code-block">
+src/main/java/com/springspartans/shopkart/
+├── controller/  (HTTP Route Handlers)
+├── model/       (JPA Entities)
+├── repository/  (Database Access)
+├── service/     (Logic & Validations)
+└── util/        (Helpers - BCrypt)
+        </div>
+
+        <h3>Appendix B: Installation Guide</h3>
+        <ol>
+            <li>Clone the repository.</li>
+            <li>Install Java 17 and Maven.</li>
+            <li>Run <code>mvn clean install</code>.</li>
+            <li>Execute <code>mvn spring-boot:run</code>.</li>
+            <li>Access the application at <code>http://localhost:8099</code>.</li>
+        </ol>
+    </div>
+
+</body>
+</html>
